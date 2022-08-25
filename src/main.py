@@ -1,6 +1,7 @@
 # This Python file uses the following encoding: utf-8
 import sys
 import os
+from math import radians
 
 from PyQt5 import QtWidgets #,uic
 # from darktheme.widget_template import DarkPalette
@@ -16,6 +17,9 @@ from wingl import setHeightWF, setParticleSize, winGL
 
 BACKGROUNDSTRING = "background-color: %s"
 
+#teta_x = 0
+#teta_y = 0
+#teta_z = 0
 
 class project(QtWidgets.QMainWindow, Ui_project):
     def __init__(self, *args, **kwargs):
@@ -62,40 +66,6 @@ class project(QtWidgets.QMainWindow, Ui_project):
 
         self.exit_btn.clicked.connect(exit)
 
-        '''
-        self.cam_move_up_btn.clicked.connect(self.moveUp)
-        self.cam_move_down_btn.clicked.connect(self.moveDown)
-        self.cam_move_left_btn.clicked.connect(self.moveLeft)
-        self.cam_move_right_btn.clicked.connect(self.moveRight)
-        self.cam_move_forward_btn.clicked.connect(self.moveForward)
-        self.cam_move_back_btn.clicked.connect(self.moveBack)
-        
-        # Поворот
-        
-        self.cam_spin_up_btn.clicked.connect(self.spinLeftY)
-        self.cam_spin_down_btn.clicked.connect(self.spinRightY)
-        self.cam_spin_left_btn.clicked.connect(self.spinLeftX)
-        self.cam_spin_right_btn.clicked.connect(self.spinRightX)
-        
-        # Масштабирование
-        
-        self.cam_scale_forward_btn.clicked.connect(self.scaleUp)
-        self.cam_sclale_back_btn.clicked.connect(self.scaleDown)
-        
-
-        # Водопад
-        self.wf_run_btn.clicked.connect(self.controllWaterfall)
-        # self.speed_up_wf_btn.clicked.connect(self.changeSpeedUpWF)
-        # self.speed_down_wf_btn.clicked.connect(self.changeSpeedDownWF)
-        self.sliderSpeedWF.valueChanged.connect(self.changeSpeedWF)
-        self.sliderHeightWF.valueChanged.connect(self.changeHeightWF)
-        self.sliderAngleWF.valueChanged.connect(self.changeAngleWF)
-        self.sliderSizeParticle.valueChanged.connect(self.changeParticleSize)
-        self.sliderAmountParticles.valueChanged.connect(self.changeParticlesAmount)
-
-        self.radiobutton.toggled.connect(self.day)
-        self.radiobutton2.toggled.connect(self.night)
-        '''
         # Таймер
         timer = QtCore.QTimer(self)
         timer.setInterval(1)
@@ -126,8 +96,13 @@ class project(QtWidgets.QMainWindow, Ui_project):
 
     # Управление водопадом
     def controllWaterfall(self):
+        #global teta_x, teta_y, teta_z
         self.isActiveWF = not self.isActiveWF
-        #self.winGL.init_pos_WF()
+        #self.winGL.rotate_scene_ox(teta_x)
+        #self.winGL.rotate_scene_oy(teta_y)
+        #self.winGL.rotate_scene_oz(teta_z)
+        #teta_x, teta_y, teta_z = 0, 0, 0
+        self.winGL.init_pos_WF()
 
     def changeSpeedWF(self, value):
         self.winGL.changeSpeedWF(value)
@@ -198,6 +173,7 @@ class project(QtWidgets.QMainWindow, Ui_project):
         self.winGL.changecolor2()
 
     def keyPressEvent(self, event):
+        #global teta_x, teta_y, teta_z
         if (event.key() == Qt.Key_W):
             self.translateVec["w"] = True
         elif (event.key() == Qt.Key_S):
@@ -207,17 +183,23 @@ class project(QtWidgets.QMainWindow, Ui_project):
         elif (event.key() == Qt.Key_D):
             self.translateVec["d"] = True
         elif (event.key() == Qt.Key_1):
-            self.winGL.rotate_scene_ox()
+            teta = radians(3)
+            #teta_x -= teta
+            self.winGL.rotate_scene_ox(teta)
             self.winGL.deleteExtraParticles()
             if self.isActiveWF:
                 self.isActiveWF = not self.isActiveWF
         elif (event.key() == Qt.Key_2):
-            self.winGL.rotate_scene_oy()
+            teta = radians(3)
+            #teta_y -= teta
+            self.winGL.rotate_scene_oy(teta)
             self.winGL.deleteExtraParticles()
             if self.isActiveWF:
                 self.isActiveWF = not self.isActiveWF
         elif (event.key() == Qt.Key_3):
-            self.winGL.rotate_scene_oz()
+            teta = radians(3)
+            #teta_z -= teta
+            self.winGL.rotate_scene_oz(teta)
             self.winGL.deleteExtraParticles()
             if self.isActiveWF:
                 self.isActiveWF = not self.isActiveWF

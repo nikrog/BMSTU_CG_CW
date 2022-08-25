@@ -126,7 +126,6 @@ class winGL(QtOpenGL.QGLWidget):
                 2, 3, 6, 3, 6, 7
             ),
             dtype='int32')
-        self.solidRock_copy = deepcopy(self.solidRock)
         '''
         self.colorRock = [
             glm.vec4(0.396, 0.262, 0.129, 1),
@@ -427,16 +426,74 @@ class winGL(QtOpenGL.QGLWidget):
         gl.glDisableVertexAttribArray(1)
 
     def init_pos_WF(self):
-        self.solidRock = self.solidRock_copy
-        print(self.solidRock_copy)
-        self.solidRock2 = self.solidRock2_copy
-        self.solidGrass = self.solidGrass_copy
-        self.solidGrass2 = self.solidGrass2_copy
-        self.solidLake = self.solidLake_copy
-        self.solidWater = self.solidWater_copy
+        self.solidRock = np.array(
+            (
+                (-15, -0.01, 0),
+                (-15, -0.01, 5),
+                (15, -0.01, 5),
+                (15, -0.01, 0),
 
-    def rotate_scene_oz(self):
-        teta = radians(3)
+                (-15, -15, 0),
+                (-15, -15, 5),
+                (15, -15, 5),
+                (15, -15, 0)
+            ),
+            dtype='float32')
+        self.solidRock2 = np.array(
+            (
+                (-20, 1, 0),
+                (-20, 1, 5),
+                (-15, 1, 5),
+                (-15, 1, 0),
+
+                (-20, -20, -2),
+                (-20, -20, 5),
+                (-15, -20, 5),
+                (-15, -20, -2)
+            ),
+            dtype='float32')
+        self.solidGrass = np.array(
+            (
+                (-20, -15, 5),
+                (-20, -15, -20),
+                (-15, -15, -20),
+                (-15, -15, 5),
+
+                (-20, -20, 5),
+                (-20, -20, -20),
+                (-10, -20, -20),
+                (-15, -20, 5),
+            ),
+            dtype='float32')
+        self.solidGrass2 = np.array(
+            (
+                (20, -15, 5),
+                (20, -15, -20),
+                (15, -15, -20),
+                (15, -15, 5),
+
+                (20, -20, 5),
+                (20, -20, -20),
+                (10, -20, -20),
+                (15, -20, 5)
+            ),
+            dtype='float32')
+        self.solidLake = np.array(
+            (
+                (-15, -15, 5),
+                (-15, -15, -20),
+                (15, -15, -20),
+                (15, -15, 5),
+
+                (-15, -20, 5),
+                (-15, -20, -20),
+                (15, -20, -20),
+                (15, -20, 5)
+            ),
+            dtype='float32')
+        self.solidWater = np.array(self.getGridCords(5, 15, [-15, -14.95, -20], 2, 5), dtype="float32")
+
+    def rotate_scene_oz(self, teta):
         x_c = 0
         y_c = 0
         for i in range(len(self.solidRock)):
@@ -467,6 +524,7 @@ class winGL(QtOpenGL.QGLWidget):
             y_pr = self.solidGrass2[i][1]
             self.solidGrass2[i][0] = x_c + (x_pr - x_c) * cos(teta) - (y_pr - y_c) * sin(teta)
             self.solidGrass2[i][1] = y_c + (x_pr - x_c) * sin(teta) + (y_pr - y_c) * cos(teta)
+        '''
         x_pr = lineStartWF[0]
         y_pr = lineStartWF[1]
         lineStartWF[0] = x_c + (x_pr - x_c) * cos(teta) - (y_pr - y_c) * sin(teta)
@@ -483,7 +541,7 @@ class winGL(QtOpenGL.QGLWidget):
         y_pr = lineEndRock[1]
         lineEndRock[0] = x_c + (x_pr - x_c) * cos(teta) - (y_pr - y_c) * sin(teta)
         lineEndRock[1] = y_c + (x_pr - x_c) * sin(teta) + (y_pr - y_c) * cos(teta)
-
+        '''
         for i in range(len(self.solidWater)):
             x_pr = self.solidWater[i][0]
             y_pr = self.solidWater[i][1]
@@ -502,8 +560,7 @@ class winGL(QtOpenGL.QGLWidget):
             particles[i].age = particles[i].maxAge + 1
         self.deleteExtraParticles()
 
-    def rotate_scene_oy(self):
-        teta = radians(3)
+    def rotate_scene_oy(self, teta):
         x_c = 0
         z_c = 0
         for i in range(len(self.solidRock)):
@@ -534,6 +591,7 @@ class winGL(QtOpenGL.QGLWidget):
             z_pr = self.solidGrass2[i][2]
             self.solidGrass2[i][0] = x_c + (x_pr - x_c) * cos(teta) + (z_pr - z_c) * sin(teta)
             self.solidGrass2[i][2] = z_c - (x_pr - x_c) * sin(teta) + (z_pr - z_c) * cos(teta)
+        '''
         x_pr = lineStartWF[0]
         z_pr = lineStartWF[2]
         lineStartWF[0] = x_c + (x_pr - x_c) * cos(teta) + (z_pr - z_c) * sin(teta)
@@ -550,6 +608,7 @@ class winGL(QtOpenGL.QGLWidget):
         z_pr = lineEndRock[2]
         lineEndRock[0] = x_c + (x_pr - x_c) * cos(teta) + (z_pr - z_c) * sin(teta)
         lineEndRock[2] = z_c - (x_pr - x_c) * sin(teta) + (z_pr - z_c) * cos(teta)
+        '''
 
         for i in range(len(self.solidWater)):
             x_pr = self.solidWater[i][0]
@@ -571,8 +630,7 @@ class winGL(QtOpenGL.QGLWidget):
             particles[i].age = particles[i].maxAge + 1
 
 
-    def rotate_scene_ox(self):
-        teta = radians(3)
+    def rotate_scene_ox(self, teta):
         y_c = 0
         z_c = 0
         for i in range(len(self.solidRock)):
@@ -603,6 +661,7 @@ class winGL(QtOpenGL.QGLWidget):
             z_pr = self.solidGrass2[i][2]
             self.solidGrass2[i][1] = y_c + (y_pr - y_c) * cos(teta) - (z_pr - z_c) * sin(teta)
             self.solidGrass2[i][2] = z_c + (y_pr - y_c) * sin(teta) + (z_pr - z_c) * cos(teta)
+        '''
         y_pr = lineStartWF[1]
         z_pr = lineStartWF[2]
         lineStartWF[1] = y_c + (y_pr - y_c) * cos(teta) - (z_pr - z_c) * sin(teta)
@@ -619,6 +678,7 @@ class winGL(QtOpenGL.QGLWidget):
         z_pr = lineEndRock[2]
         lineEndRock[1] = y_c + (y_pr - y_c) * cos(teta) - (z_pr - z_c) * sin(teta)
         lineEndRock[2] = z_c + (y_pr - y_c) * sin(teta) + (z_pr - z_c) * cos(teta)
+        '''
 
         for i in range(len(self.solidWater)):
             y_pr = self.solidWater[i][1]
