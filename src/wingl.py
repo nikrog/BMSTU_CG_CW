@@ -492,6 +492,10 @@ class winGL(QtOpenGL.QGLWidget):
             ),
             dtype='float32')
         self.solidWater = np.array(self.getGridCords(5, 15, [-15, -14.95, -20], 2, 5), dtype="float32")
+        lineStartWF[1] = 0
+        lineEndWF[1] = 0
+        lineStartRock[1] = 0
+        lineEndRock[1] = 0
 
     def rotate_scene_oz(self, teta):
         x_c = 0

@@ -1,7 +1,7 @@
 # This Python file uses the following encoding: utf-8
 import sys
 import os
-from math import radians
+from math import radians, sin, cos
 
 from PyQt5 import QtWidgets #,uic
 # from darktheme.widget_template import DarkPalette
@@ -20,6 +20,7 @@ BACKGROUNDSTRING = "background-color: %s"
 #teta_x = 0
 #teta_y = 0
 #teta_z = 0
+CANCEL_FL = 0
 
 class project(QtWidgets.QMainWindow, Ui_project):
     def __init__(self, *args, **kwargs):
@@ -96,8 +97,10 @@ class project(QtWidgets.QMainWindow, Ui_project):
 
     # Управление водопадом
     def controllWaterfall(self):
+        global CANCEL_FL
         #global teta_x, teta_y, teta_z
         self.isActiveWF = not self.isActiveWF
+        CANCEL_FL = 0
         #self.winGL.rotate_scene_ox(teta_x)
         #self.winGL.rotate_scene_oy(teta_y)
         #self.winGL.rotate_scene_oz(teta_z)
@@ -117,9 +120,10 @@ class project(QtWidgets.QMainWindow, Ui_project):
         self.winGL.changeParticlesAmount(value)
 
     def changeHeightWF(self, value):
-        setHeightWF(value)
-        self.winGL.changeHeightAliveWF(value)
-        self.winGL.changeHeightRock(value)
+        if CANCEL_FL == 0:
+            setHeightWF(value)
+            self.winGL.changeHeightAliveWF(value)
+            self.winGL.changeHeightRock(value)
 
     # Масштабирование
     def scaleUp(self):
@@ -161,10 +165,10 @@ class project(QtWidgets.QMainWindow, Ui_project):
         self.winGL.spin((-1, 0, 0))
 
     def spinLeftZ(self):
-        self.winGL.spin((-1, 1, 0))
+        self.winGL.spin((sin(radians(5)), cos(radians(5)), 0))  # -1 1 0
 
     def spinRightZ(self):
-        self.winGL.spin((1, -1, 0))
+        self.winGL.spin((sin(radians(-5)), -cos(radians(5)), 0))  # 1 -1 0
 
     def night(self):
         self.winGL.changecolor()
@@ -173,6 +177,7 @@ class project(QtWidgets.QMainWindow, Ui_project):
         self.winGL.changecolor2()
 
     def keyPressEvent(self, event):
+        global CANCEL_FL
         #global teta_x, teta_y, teta_z
         if (event.key() == Qt.Key_W):
             self.translateVec["w"] = True
@@ -183,6 +188,7 @@ class project(QtWidgets.QMainWindow, Ui_project):
         elif (event.key() == Qt.Key_D):
             self.translateVec["d"] = True
         elif (event.key() == Qt.Key_1):
+            CANCEL_FL = 1
             teta = radians(3)
             #teta_x -= teta
             self.winGL.rotate_scene_ox(teta)
@@ -190,14 +196,40 @@ class project(QtWidgets.QMainWindow, Ui_project):
             if self.isActiveWF:
                 self.isActiveWF = not self.isActiveWF
         elif (event.key() == Qt.Key_2):
+            CANCEL_FL = 1
+            teta = radians(-3)
+            #teta_x -= teta
+            self.winGL.rotate_scene_ox(teta)
+            self.winGL.deleteExtraParticles()
+            if self.isActiveWF:
+                self.isActiveWF = not self.isActiveWF
+        elif (event.key() == Qt.Key_3):
+            CANCEL_FL = 1
             teta = radians(3)
             #teta_y -= teta
             self.winGL.rotate_scene_oy(teta)
             self.winGL.deleteExtraParticles()
             if self.isActiveWF:
                 self.isActiveWF = not self.isActiveWF
-        elif (event.key() == Qt.Key_3):
+        elif (event.key() == Qt.Key_4):
+            CANCEL_FL = 1
+            teta = radians(-3)
+            #teta_y -= teta
+            self.winGL.rotate_scene_oy(teta)
+            self.winGL.deleteExtraParticles()
+            if self.isActiveWF:
+                self.isActiveWF = not self.isActiveWF
+        elif (event.key() == Qt.Key_5):
+            CANCEL_FL = 1
             teta = radians(3)
+            #teta_z -= teta
+            self.winGL.rotate_scene_oz(teta)
+            self.winGL.deleteExtraParticles()
+            if self.isActiveWF:
+                self.isActiveWF = not self.isActiveWF
+        elif (event.key() == Qt.Key_6):
+            CANCEL_FL = 1
+            teta = radians(-3)
             #teta_z -= teta
             self.winGL.rotate_scene_oz(teta)
             self.winGL.deleteExtraParticles()
