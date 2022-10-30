@@ -1,6 +1,7 @@
 #include "algorithms.h"
 
-int count_particle_position(double old_speed, double cur_speed, double *old_dir, double *cur_dir, int fl, double *pos)
+ALG_DLL int ALG_DECL count_particle_position(double old_speed, double cur_speed,
+                                             double *old_dir, double *cur_dir, int fl, double *pos)
 {
     pos[0] = pos[0] + old_speed * old_dir[0] + (cur_speed * cur_dir[0]) / 2;
     if (fl) {
