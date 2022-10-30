@@ -126,14 +126,7 @@ class winGL(QtOpenGL.QGLWidget):
                 2, 3, 6, 3, 6, 7
             ),
             dtype='int32')
-        '''
-        self.colorRock = [
-            glm.vec4(0.396, 0.262, 0.129, 1),
-            glm.vec4(0.396, 0.262, 0.129, 1),
-            glm.vec4(0.396, 0.262, 0.129, 1),
-            glm.vec4(0.396, 0.262, 0.129, 1)
-        ]
-        '''
+
         self.colorRock = [
             glm.vec4(0.439, 0.423, 0.423, 1),
             glm.vec4(0, 0.827, 0, 1),
@@ -528,24 +521,7 @@ class winGL(QtOpenGL.QGLWidget):
             y_pr = self.solidGrass2[i][1]
             self.solidGrass2[i][0] = x_c + (x_pr - x_c) * cos(teta) - (y_pr - y_c) * sin(teta)
             self.solidGrass2[i][1] = y_c + (x_pr - x_c) * sin(teta) + (y_pr - y_c) * cos(teta)
-        '''
-        x_pr = lineStartWF[0]
-        y_pr = lineStartWF[1]
-        lineStartWF[0] = x_c + (x_pr - x_c) * cos(teta) - (y_pr - y_c) * sin(teta)
-        lineStartWF[1] = y_c + (x_pr - x_c) * sin(teta) + (y_pr - y_c) * cos(teta)
-        x_pr = lineEndWF[0]
-        y_pr = lineEndWF[1]
-        lineEndWF[0] = x_c + (x_pr - x_c) * cos(teta) - (y_pr - y_c) * sin(teta)
-        lineEndWF[1] = y_c + (x_pr - x_c) * sin(teta) + (y_pr - y_c) * cos(teta)
-        x_pr = lineStartRock[0]
-        y_pr = lineStartRock[1]
-        lineStartRock[0] = x_c + (x_pr - x_c) * cos(teta) - (y_pr - y_c) * sin(teta)
-        lineStartRock[1] = y_c + (x_pr - x_c) * sin(teta) + (y_pr - y_c) * cos(teta)
-        x_pr = lineEndRock[0]
-        y_pr = lineEndRock[1]
-        lineEndRock[0] = x_c + (x_pr - x_c) * cos(teta) - (y_pr - y_c) * sin(teta)
-        lineEndRock[1] = y_c + (x_pr - x_c) * sin(teta) + (y_pr - y_c) * cos(teta)
-        '''
+
         for i in range(len(self.solidWater)):
             x_pr = self.solidWater[i][0]
             y_pr = self.solidWater[i][1]
@@ -665,24 +641,6 @@ class winGL(QtOpenGL.QGLWidget):
             z_pr = self.solidGrass2[i][2]
             self.solidGrass2[i][1] = y_c + (y_pr - y_c) * cos(teta) - (z_pr - z_c) * sin(teta)
             self.solidGrass2[i][2] = z_c + (y_pr - y_c) * sin(teta) + (z_pr - z_c) * cos(teta)
-        '''
-        y_pr = lineStartWF[1]
-        z_pr = lineStartWF[2]
-        lineStartWF[1] = y_c + (y_pr - y_c) * cos(teta) - (z_pr - z_c) * sin(teta)
-        lineStartWF[2] = z_c + (y_pr - y_c) * sin(teta) + (z_pr - z_c) * cos(teta)
-        y_pr = lineEndWF[1]
-        z_pr = lineEndWF[2]
-        lineEndWF[1] = y_c + (y_pr - y_c) * cos(teta) - (z_pr - z_c) * sin(teta)
-        lineEndWF[2] = z_c + (y_pr - y_c) * sin(teta) + (z_pr - z_c) * cos(teta)
-        y_pr = lineStartRock[1]
-        z_pr = lineStartRock[2]
-        lineStartRock[1] = y_c + (y_pr - y_c) * cos(teta) - (z_pr - z_c) * sin(teta)
-        lineStartRock[2] = z_c + (y_pr - y_c) * sin(teta) + (z_pr - z_c) * cos(teta)
-        y_pr = lineEndRock[1]
-        z_pr = lineEndRock[2]
-        lineEndRock[1] = y_c + (y_pr - y_c) * cos(teta) - (z_pr - z_c) * sin(teta)
-        lineEndRock[2] = z_c + (y_pr - y_c) * sin(teta) + (z_pr - z_c) * cos(teta)
-        '''
 
         for i in range(len(self.solidWater)):
             y_pr = self.solidWater[i][1]

@@ -90,9 +90,9 @@ class Camera(Object):
     def continousTranslate(self, directions):
         self.pos += self.speed * self.front * directions["w"]
         self.pos -= self.speed * self.front * directions["s"]
-        self.pos += (self.speed * glm.normalize(glm.cross(self.pos, self.up)) * directions["a"])
+        self.pos -= (self.speed * glm.normalize(glm.cross(self.pos, self.up)) * directions["a"])
         # cross - векторное произведение векторов
-        self.pos -= (self.speed * glm.normalize(glm.cross(self.pos, self.up)) * directions["d"])
+        self.pos += (self.speed * glm.normalize(glm.cross(self.pos, self.up)) * directions["d"])
         # TODO: поворот камеры
         '''
         if directions["1"]:

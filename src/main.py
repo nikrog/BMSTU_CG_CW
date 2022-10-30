@@ -65,6 +65,9 @@ class project(QtWidgets.QMainWindow, Ui_project):
         self.cam_spin_back_btn.clicked.connect(self.spinLeftZ)
         self.cam_spin_forward_btn.clicked.connect(self.spinRightZ)
 
+        # Управление сценой
+        self.transf_scene_control_btn.clicked.connect(self.cntl_scene_msg)
+
         self.exit_btn.clicked.connect(exit)
 
         # Таймер
@@ -89,7 +92,7 @@ class project(QtWidgets.QMainWindow, Ui_project):
             self.winGL.makeWaterfall()
 
         self.winGL.update(self.curColor.getRgbF(), self.translateVec)
-        self.setWindowTitle("Количество частиц воды: %5s,  %5s fps Артюхин Николай ИУ7-51Б"
+        self.setWindowTitle("Артюхин Николай ИУ7-51Б Количество частиц воды: %5s,  %5s fps "
                             % (self.winGL.getAmountParticles(), self.winGL.getFPS()))
 
     def timerUpdateWaterColor(self):
@@ -175,6 +178,21 @@ class project(QtWidgets.QMainWindow, Ui_project):
 
     def day(self):
         self.winGL.changecolor2()
+
+    def cntl_scene_msg(self):
+        m = QMessageBox(self.centralwidget)
+        m.setWindowTitle("Управление сценой")
+        m.setText("Управление сценой производится с помощью следующих клавиш:\n"
+                  "1) Поворот сцены вокруг Ox (по/против часовой стрелки) - клавиши 1, 2;\n"
+                  "2) Поворот сцены вокруг Oy (по/против часовой стрелки) - клавиши 3, 4;\n"
+                  "3) Поворот сцены вокруг Oz (по/против часовой стрелки) - клавиши 5, 6;\n"
+                  "4) Приближение/удаление сцены - клавиши W, S;\n"
+                  "5) Перемещение сцены влево/вправо - клавиши A, D;\n"
+                  "6) Перемещение сцены вперед/назад - клавиши F, C;\n"
+                  "7) Перемещение сцены вверх/вниз - клавиши H, B.\n"
+                  "Динамический обзор сцены (включение) - ЛКМ по сцене + перемещение курсора мыши\n"
+                  "Динамический обзор сцены (выключение) - ЛКМ по сцене")
+        m.exec()
 
     def keyPressEvent(self, event):
         global CANCEL_FL
