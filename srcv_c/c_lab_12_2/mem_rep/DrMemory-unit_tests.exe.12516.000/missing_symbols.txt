@@ -1,0 +1,2 @@
+C:\WINDOWS\System32\msvcrt.dll
+C:\msys64\mingw64\bin\libwinpthread-1.dll
