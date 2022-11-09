@@ -1,0 +1,5 @@
+array_lib.c
+array_lib.h
+check_arr_lib.c
+check_main.c
+check_main.h

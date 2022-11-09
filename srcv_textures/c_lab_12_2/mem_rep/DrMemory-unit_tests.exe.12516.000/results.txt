@@ -1,0 +1,113 @@
+Dr. Memory version 2.4.0 build 2 built on Aug 31 2021 04:11:37
+Windows version: WinVer=105;Rel=2009;Build=19043;Edition=Professional
+Dr. Memory results for pid 12516: "unit_tests.exe"
+Application cmdline: "unit_tests.exe"
+Recorded 124 suppression(s) from default C:\Program Files (x86)\Dr. Memory\bin64\suppress-default.txt
+
+Error #1: UNADDRESSABLE ACCESS beyond top of stack: reading 0x000000c1c3bff490-0x000000c1c3bff498 8 byte(s)
+# 0 ___chkstk_ms                            [../../../gcc-10.3.0/libgcc/config/i386/cygwin.S:132]
+# 1 _pei386_runtime_relocator               [C:/_/M/mingw-w64-crt-git/src/mingw-w64/mingw-w64-crt/crt/pseudo-reloc.c:477]
+# 2 __tmainCRTStartup                       [C:/_/M/mingw-w64-crt-git/src/mingw-w64/mingw-w64-crt/crt/crtexe.c:269]
+# 3 .l_start                                [C:/_/M/mingw-w64-crt-git/src/mingw-w64/mingw-w64-crt/crt/crtexe.c:202]
+# 4 KERNEL32.dll!BaseThreadInitThunk
+Note: @0:00:00.404 in thread 1232
+Note: 0x000000c1c3bff490 refers to 744 byte(s) beyond the top of the stack 0x000000c1c3bff778
+Note: instruction: or     $0x0000000000000000 (%rcx) -> (%rcx)
+
+Error #2: UNINITIALIZED READ: reading register rcx
+# 0 libcheck-0.dll!_tcase_add_test            [D:\check-0.14.0\check-0.14.0\src/check.c:259]
+# 1 insert_num_after_even_suite               [C:/_/M/mingw-w64-crt-git/src/mingw-w64/mingw-w64-crt/crt/crtexe.c:420]
+# 2 main                                      [C:/_/M/mingw-w64-crt-git/src/mingw-w64/mingw-w64-crt/crt/crtexe.c:420]
+Note: @0:00:00.424 in thread 1232
+Note: instruction: test   %rcx %rcx
+
+Error #3: UNINITIALIZED READ: reading register rbx
+# 0 libcheck-0.dll!_tcase_add_test            [D:\check-0.14.0\check-0.14.0\src/check.c:268]
+# 1 insert_num_after_even_suite               [C:/_/M/mingw-w64-crt-git/src/mingw-w64/mingw-w64-crt/crt/crtexe.c:420]
+# 2 main                                      [C:/_/M/mingw-w64-crt-git/src/mingw-w64/mingw-w64-crt/crt/crtexe.c:420]
+Note: @0:00:00.424 in thread 1232
+Note: instruction: mov    0x18(%rbx) -> %rcx
+
+Error #4: UNINITIALIZED READ: reading register rcx
+# 0 libcheck-0.dll!_tcase_add_test            [D:\check-0.14.0\check-0.14.0\src/check.c:259]
+# 1 insert_num_after_even_suite               [C:/_/M/mingw-w64-crt-git/src/mingw-w64/mingw-w64-crt/crt/crtexe.c:420]
+# 2 main                                      [C:/_/M/mingw-w64-crt-git/src/mingw-w64/mingw-w64-crt/crt/crtexe.c:420]
+Note: @0:00:00.424 in thread 1232
+Note: instruction: test   %rcx %rcx
+
+Error #5: UNINITIALIZED READ: reading register rbx
+# 0 libcheck-0.dll!_tcase_add_test            [D:\check-0.14.0\check-0.14.0\src/check.c:268]
+# 1 insert_num_after_even_suite               [C:/_/M/mingw-w64-crt-git/src/mingw-w64/mingw-w64-crt/crt/crtexe.c:420]
+# 2 main                                      [C:/_/M/mingw-w64-crt-git/src/mingw-w64/mingw-w64-crt/crt/crtexe.c:420]
+Note: @0:00:00.424 in thread 1232
+Note: instruction: mov    0x18(%rbx) -> %rcx
+
+Error #6: UNADDRESSABLE ACCESS beyond top of stack: reading 0x000000c1c3bff3c0-0x000000c1c3bff3c8 8 byte(s)
+# 0 libcheck-0.dll!.text               [../../../gcc-10.3.0/libgcc/config/i386/cygwin.S:132]
+# 1 libcheck-0.dll!__pformat_int.isra.0 [C:/_/M/mingw-w64-crt-git/src/mingw-w64/mingw-w64-crt/stdio/mingw_pformat.c:707]
+# 2 libcheck-0.dll!__mingw_pformat     [C:/_/M/mingw-w64-crt-git/src/mingw-w64/mingw-w64-crt/stdio/mingw_pformat.c:2605]
+# 3 libcheck-0.dll!__mingw_vsnprintf   [C:/_/M/mingw-w64-crt-git/src/mingw-w64/mingw-w64-crt/stdio/mingw_vsnprintf.c:47]
+# 4 libcheck-0.dll!ck_strdup_printf    [C:/msys64/mingw64/x86_64-w64-mingw32/include/stdio.h:469]
+# 5 libcheck-0.dll!sr_stat_str         [D:\check-0.14.0\check-0.14.0\src/check_str.c:70]
+# 6 libcheck-0.dll!srunner_fprint      [D:\check-0.14.0\check-0.14.0\src/check_print.c:65]
+# 7 libcheck-0.dll!srunner_send_evt    [D:\check-0.14.0\check-0.14.0\src/check_log.c:173]
+# 8 libcheck-0.dll!srunner_run_tagged  [D:\check-0.14.0\check-0.14.0\src/check_run.c:161]
+# 9 libcheck-0.dll!srunner_run_all     [D:\check-0.14.0\check-0.14.0\src/check_run.c:827]
+#10 main                               [C:/_/M/mingw-w64-crt-git/src/mingw-w64/mingw-w64-crt/crt/crtexe.c:420]
+Note: @0:00:00.751 in thread 1232
+Note: 0x000000c1c3bff3c0 refers to 8 byte(s) beyond the top of the stack 0x000000c1c3bff3c8
+Note: instruction: or     $0x0000000000000000 (%rcx) -> (%rcx)
+
+Error #7: UNADDRESSABLE ACCESS beyond top of stack: reading 0x000000c1c3bff360-0x000000c1c3bff368 8 byte(s)
+# 0 libcheck-0.dll!.text               [../../../gcc-10.3.0/libgcc/config/i386/cygwin.S:132]
+# 1 libcheck-0.dll!__pformat_int.isra.0 [C:/_/M/mingw-w64-crt-git/src/mingw-w64/mingw-w64-crt/stdio/mingw_pformat.c:707]
+# 2 libcheck-0.dll!__mingw_pformat     [C:/_/M/mingw-w64-crt-git/src/mingw-w64/mingw-w64-crt/stdio/mingw_pformat.c:2605]
+# 3 libcheck-0.dll!__mingw_vsnprintf   [C:/_/M/mingw-w64-crt-git/src/mingw-w64/mingw-w64-crt/stdio/mingw_vsnprintf.c:47]
+# 4 libcheck-0.dll!ck_strdup_printf    [C:/msys64/mingw64/x86_64-w64-mingw32/include/stdio.h:469]
+# 5 libcheck-0.dll!tr_str              [D:\check-0.14.0\check-0.14.0\src/check_str.c:42]
+# 6 libcheck-0.dll!tr_fprint           [D:\check-0.14.0\check-0.14.0\src/check_print.c:161]
+# 7 libcheck-0.dll!srunner_fprint      [D:\check-0.14.0\check-0.14.0\src/check_print.c:91]
+# 8 libcheck-0.dll!srunner_send_evt    [D:\check-0.14.0\check-0.14.0\src/check_log.c:173]
+# 9 libcheck-0.dll!srunner_run_tagged  [D:\check-0.14.0\check-0.14.0\src/check_run.c:161]
+#10 libcheck-0.dll!srunner_run_all     [D:\check-0.14.0\check-0.14.0\src/check_run.c:827]
+#11 main                               [C:/_/M/mingw-w64-crt-git/src/mingw-w64/mingw-w64-crt/crt/crtexe.c:420]
+Note: @0:00:00.761 in thread 1232
+Note: 0x000000c1c3bff360 refers to 8 byte(s) beyond the top of the stack 0x000000c1c3bff368
+Note: instruction: or     $0x0000000000000000 (%rcx) -> (%rcx)
+
+Error #8: POSSIBLE LEAK 32 direct bytes 0x000001ebc31501c0-0x000001ebc31501e0 + 0 indirect bytes
+# 0 replace_malloc                    [d:\a\drmemory\drmemory\common\alloc_replace.c:2580]
+# 1 msvcrt.dll!realloc               +0x193    (0x00007ffe3f969f44 <msvcrt.dll+0x19f44>)
+# 2 msvcrt.dll!unlock                +0x40c    (0x00007ffe3f98b68d <msvcrt.dll+0x3b68d>)
+# 3 msvcrt.dll!_getmainargs          +0x30     (0x00007ffe3f957a01 <msvcrt.dll+0x7a01>)
+# 4 pre_cpp_init                      [C:/_/M/mingw-w64-crt-git/src/mingw-w64/mingw-w64-crt/crt/crtexe.c:161]
+# 5 msvcrt.dll!initterm              +0x42     (0x00007ffe3f98a553 <msvcrt.dll+0x3a553>)
+# 6 __tmainCRTStartup                 [C:/_/M/mingw-w64-crt-git/src/mingw-w64/mingw-w64-crt/crt/crtexe.c:259]
+# 7 .l_start                          [C:/_/M/mingw-w64-crt-git/src/mingw-w64/mingw-w64-crt/crt/crtexe.c:202]
+# 8 KERNEL32.dll!BaseThreadInitThunk
+
+===========================================================================
+FINAL SUMMARY:
+
+DUPLICATE ERROR COUNTS:
+	Error #   1:      2
+	Error #   6:      8
+	Error #   7:     68
+
+SUPPRESSIONS USED:
+
+ERRORS FOUND:
+      3 unique,    78 total unaddressable access(es)
+      4 unique,     4 total uninitialized access(es)
+      0 unique,     0 total invalid heap argument(s)
+      0 unique,     0 total GDI usage error(s)
+      0 unique,     0 total handle leak(s)
+      0 unique,     0 total warning(s)
+      0 unique,     0 total,      0 byte(s) of leak(s)
+      1 unique,     1 total,     32 byte(s) of possible leak(s)
+ERRORS IGNORED:
+      2 potential error(s) (suspected false positives)
+         (details: D:\c_lab_12_2\mem_rep\DrMemory-unit_tests.exe.12516.000\potential_errors.txt)
+     10 unique,    10 total,   5007 byte(s) of still-reachable allocation(s)
+         (re-run with "-show_reachable" for details)
+Details: D:\c_lab_12_2\mem_rep\DrMemory-unit_tests.exe.12516.000\results.txt

@@ -1,0 +1,164 @@
+# File for suppressing errors found in pid 12516: "unit_tests.exe"
+
+# Suppression for Error #1
+UNADDRESSABLE ACCESS
+name=Error #1 (update to meaningful name)
+unit_tests.exe!___chkstk_ms
+unit_tests.exe!_pei386_runtime_relocator
+unit_tests.exe!__tmainCRTStartup
+unit_tests.exe!.l_start
+KERNEL32.dll!BaseThreadInitThunk
+
+## Mod+offs-style suppression for Error #1:
+UNADDRESSABLE ACCESS
+name=Error #1 (update to meaningful name)
+<unit_tests.exe+0x595b>
+<unit_tests.exe+0x4e96>
+<unit_tests.exe+0x1251>
+<unit_tests.exe+0x14e6>
+<KERNEL32.dll+0x17034>
+
+# Suppression for Error #2
+UNINITIALIZED READ
+name=Error #2 (update to meaningful name)
+libcheck-0.dll!_tcase_add_test
+unit_tests.exe!insert_num_after_even_suite
+unit_tests.exe!main
+
+## Mod+offs-style suppression for Error #2:
+UNINITIALIZED READ
+name=Error #2 (update to meaningful name)
+<libcheck-0.dll+0x17e8>
+<unit_tests.exe+0x4705>
+<unit_tests.exe+0x48ea>
+
+# Suppression for Error #3
+UNINITIALIZED READ
+name=Error #3 (update to meaningful name)
+libcheck-0.dll!_tcase_add_test
+unit_tests.exe!insert_num_after_even_suite
+unit_tests.exe!main
+
+## Mod+offs-style suppression for Error #3:
+UNINITIALIZED READ
+name=Error #3 (update to meaningful name)
+<libcheck-0.dll+0x1800>
+<unit_tests.exe+0x4705>
+<unit_tests.exe+0x48ea>
+
+# Suppression for Error #4
+UNINITIALIZED READ
+name=Error #4 (update to meaningful name)
+libcheck-0.dll!_tcase_add_test
+unit_tests.exe!insert_num_after_even_suite
+unit_tests.exe!main
+
+## Mod+offs-style suppression for Error #4:
+UNINITIALIZED READ
+name=Error #4 (update to meaningful name)
+<libcheck-0.dll+0x17e8>
+<unit_tests.exe+0x4734>
+<unit_tests.exe+0x48ea>
+
+# Suppression for Error #5
+UNINITIALIZED READ
+name=Error #5 (update to meaningful name)
+libcheck-0.dll!_tcase_add_test
+unit_tests.exe!insert_num_after_even_suite
+unit_tests.exe!main
+
+## Mod+offs-style suppression for Error #5:
+UNINITIALIZED READ
+name=Error #5 (update to meaningful name)
+<libcheck-0.dll+0x1800>
+<unit_tests.exe+0x4734>
+<unit_tests.exe+0x48ea>
+
+# Suppression for Error #6
+UNADDRESSABLE ACCESS
+name=Error #6 (update to meaningful name)
+libcheck-0.dll!.text
+libcheck-0.dll!__pformat_int.isra.0
+libcheck-0.dll!__mingw_pformat
+libcheck-0.dll!__mingw_vsnprintf
+libcheck-0.dll!ck_strdup_printf
+libcheck-0.dll!sr_stat_str
+libcheck-0.dll!srunner_fprint
+libcheck-0.dll!srunner_send_evt
+libcheck-0.dll!srunner_run_tagged
+libcheck-0.dll!srunner_run_all
+unit_tests.exe!main
+
+## Mod+offs-style suppression for Error #6:
+UNADDRESSABLE ACCESS
+name=Error #6 (update to meaningful name)
+<libcheck-0.dll+0x5e8b>
+<libcheck-0.dll+0x909a>
+<libcheck-0.dll+0xa4be>
+<libcheck-0.dll+0x62f8>
+<libcheck-0.dll+0x4ea6>
+<libcheck-0.dll+0x4fff>
+<libcheck-0.dll+0x44d0>
+<libcheck-0.dll+0x230f>
+<libcheck-0.dll+0x4ad1>
+<libcheck-0.dll+0x4dee>
+<unit_tests.exe+0x490a>
+
+# Suppression for Error #7
+UNADDRESSABLE ACCESS
+name=Error #7 (update to meaningful name)
+libcheck-0.dll!.text
+libcheck-0.dll!__pformat_int.isra.0
+libcheck-0.dll!__mingw_pformat
+libcheck-0.dll!__mingw_vsnprintf
+libcheck-0.dll!ck_strdup_printf
+libcheck-0.dll!tr_str
+libcheck-0.dll!tr_fprint
+libcheck-0.dll!srunner_fprint
+libcheck-0.dll!srunner_send_evt
+libcheck-0.dll!srunner_run_tagged
+libcheck-0.dll!srunner_run_all
+unit_tests.exe!main
+
+## Mod+offs-style suppression for Error #7:
+UNADDRESSABLE ACCESS
+name=Error #7 (update to meaningful name)
+<libcheck-0.dll+0x5e8b>
+<libcheck-0.dll+0x909a>
+<libcheck-0.dll+0xa4be>
+<libcheck-0.dll+0x62f8>
+<libcheck-0.dll+0x4ea6>
+<libcheck-0.dll+0x4f26>
+<libcheck-0.dll+0x441e>
+<libcheck-0.dll+0x44a6>
+<libcheck-0.dll+0x230f>
+<libcheck-0.dll+0x4ad1>
+<libcheck-0.dll+0x4dee>
+<unit_tests.exe+0x490a>
+
+# Suppression for Error #8
+POSSIBLE LEAK
+name=Error #8 (update to meaningful name)
+drmemorylib.dll!replace_malloc
+msvcrt.dll!realloc
+msvcrt.dll!unlock
+msvcrt.dll!_getmainargs
+unit_tests.exe!pre_cpp_init
+msvcrt.dll!initterm
+unit_tests.exe!__tmainCRTStartup
+unit_tests.exe!.l_start
+KERNEL32.dll!BaseThreadInitThunk
+
+## Mod+offs-style suppression for Error #8:
+POSSIBLE LEAK
+name=Error #8 (update to meaningful name)
+<drmemorylib.dll+0x27f00>
+<msvcrt.dll+0x19f44>
+<msvcrt.dll+0x3b68d>
+<msvcrt.dll+0x7a01>
+<unit_tests.exe+0x1173>
+<msvcrt.dll+0x3a553>
+<unit_tests.exe+0x1437>
+<unit_tests.exe+0x14e6>
+<KERNEL32.dll+0x17034>
+

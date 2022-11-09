@@ -1,0 +1,46 @@
+Dr. Memory version 2.4.0 build 2 built on Aug 31 2021 04:11:37
+Dr. Memory errors that are likely to be false positives, for pid 12516: "unit_tests.exe"
+These errors matched the blocklist ',C:\WINDOWS*.d??' for 4 frames.
+Run with -lib_blocklist_frames 0 to treat these as regular errors.
+If these are all false positives and your focus is unaddressable errors, consider running with -light to skip all uninitialized reads and leaks for higher performance.
+
+Potential Error #1: HANDLE LEAK: KERNEL handle 0x00000000000000ec and 0 similar handle(s) were opened but not closed:
+# 0 system call NtCreateEvent
+# 1 KERNELBASE.dll!CreateEventA  
+# 2 libwinpthread-1.dll!?                  +0x0      (0x00007ffe37084b7e <libwinpthread-1.dll+0x4b7e>)
+# 3 libwinpthread-1.dll!?                  +0x0      (0x00007ffe37085bc5 <libwinpthread-1.dll+0x5bc5>)
+# 4 libcheck-0.dll!ppack                    [D:\check-0.14.0\check-0.14.0\src/check_pack.c:330]
+# 5 libcheck-0.dll!send_ctx_info            [D:\check-0.14.0\check-0.14.0\src/check_msg.c:117]
+# 6 libcheck-0.dll!tcase_fn_start           [D:\check-0.14.0\check-0.14.0\src/check.c:349]
+# 7 libcheck-0.dll!tcase_run_tfun_nofork    [D:\check-0.14.0\check-0.14.0\src/check_run.c:419]
+# 8 libcheck-0.dll!srunner_run_tagged       [D:\check-0.14.0\check-0.14.0\src/check_run.c:263]
+# 9 libcheck-0.dll!srunner_run_all          [D:\check-0.14.0\check-0.14.0\src/check_run.c:827]
+#10 main                                    [C:/_/M/mingw-w64-crt-git/src/mingw-w64/mingw-w64-crt/crt/crtexe.c:420]
+Note: @0:00:01.049 in thread 1232
+
+Potential Error #2: HANDLE LEAK: KERNEL handle 0x00000000000000f4 and 0 similar handle(s) were opened but not closed:
+# 0 system call NtDuplicateObject
+# 1 KERNELBASE.dll!DuplicateHandle
+# 2 libwinpthread-1.dll!?                      +0x0      (0x00007ffe37084c00 <libwinpthread-1.dll+0x4c00>)
+# 3 libwinpthread-1.dll!?                      +0x0      (0x00007ffe37085bc5 <libwinpthread-1.dll+0x5bc5>)
+# 4 libcheck-0.dll!ppack                        [D:\check-0.14.0\check-0.14.0\src/check_pack.c:330]
+# 5 libcheck-0.dll!send_ctx_info                [D:\check-0.14.0\check-0.14.0\src/check_msg.c:117]
+# 6 libcheck-0.dll!tcase_fn_start               [D:\check-0.14.0\check-0.14.0\src/check.c:349]
+# 7 libcheck-0.dll!tcase_run_tfun_nofork        [D:\check-0.14.0\check-0.14.0\src/check_run.c:419]
+# 8 libcheck-0.dll!srunner_run_tagged           [D:\check-0.14.0\check-0.14.0\src/check_run.c:263]
+# 9 libcheck-0.dll!srunner_run_all              [D:\check-0.14.0\check-0.14.0\src/check_run.c:827]
+#10 main                                        [C:/_/M/mingw-w64-crt-git/src/mingw-w64/mingw-w64-crt/crt/crtexe.c:420]
+Note: @0:00:01.049 in thread 1232
+
+DUPLICATE POTENTIAL ERROR COUNTS:
+
+POTENTIAL ERRORS FOUND:
+      0 unique,     0 total potential unaddressable access(es)
+      0 unique,     0 total potential uninitialized access(es)
+      0 unique,     0 total potential invalid heap argument(s)
+      0 unique,     0 total potential GDI usage error(s)
+      2 unique,     2 total potential handle leak(s)
+      0 unique,     0 total potential warning(s)
+      0 unique,     0 total,      0 byte(s) of potential leak(s)
+      0 unique,     0 total,      0 byte(s) of potential possible leak(s)
+Details: D:\c_lab_12_2\mem_rep\DrMemory-unit_tests.exe.12516.000\potential_errors.txt
