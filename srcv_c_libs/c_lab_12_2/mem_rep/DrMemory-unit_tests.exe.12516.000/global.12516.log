@@ -1,0 +1,199 @@
+Dr. Memory version 2.4.0 build 2 built on Aug 31 2021 04:11:37
+start time: 3690137:12:59.968 == 17:12:59.968 12/20/2021
+Recorded 124 suppression(s) from default C:\Program Files (x86)\Dr. Memory\bin64\suppress-default.txt
+Using system call file D:\c_lab_12_2\mem_rep\symcache\syscalls_x64.txt
+Syscall mismatch detected.  Running on unknown kernel version!
+WARNING: duplicate entry added to name2num_table: WOWCLEANUP
+new thread #0 id=1232
+
+module load event: "dynamorio.dll" 0x0000000071000000-0x00000000711bd000 modid: 1 C:\Program Files (x86)\Dr. Memory\dynamorio\lib64\release\dynamorio.dll
+
+module load event: "drmemorylib.dll" 0x00007ff71ee40000-0x00007ff71f0ec000 modid: 2 C:\Program Files (x86)\Dr. Memory\bin64\release\drmemorylib.dll
+
+module load event: "unit_tests.exe" 0x00007ff78ee10000-0x00007ff78ee38000 modid: 3 D:\c_lab_12_2\unit_tests.exe
+
+module load event: "libcheck-0.dll" 0x00007ffe11520000-0x00007ffe115aa000 modid: 4 C:\msys64\mingw64\bin\libcheck-0.dll
+
+module load event: "libwinpthread-1.dll" 0x00007ffe37080000-0x00007ffe37096000 modid: 5 C:\msys64\mingw64\bin\libwinpthread-1.dll
+
+module load event: "libarr.dll" 0x00007ffe388a0000-0x00007ffe388c0000 modid: 6 D:\c_lab_12_2\libarr.dll
+
+module load event: "KERNELBASE.dll" 0x00007ffe3de20000-0x00007ffe3e0e8000 modid: 7 C:\WINDOWS\System32\KERNELBASE.dll
+
+module load event: "msvcrt.dll" 0x00007ffe3f950000-0x00007ffe3f9ee000 modid: 8 C:\WINDOWS\System32\msvcrt.dll
+WARNING: unable to load symbols for C:\WINDOWS\System32\msvcrt.dll
+WARNING: new/delete has no local wrapper => disabling mismatch detection for msvcrt.dll
+WARNING: new/delete has no local wrapper => disabling mismatch detection for msvcrt.dll
+WARNING: new == new[] => disabling mismatch detection for msvcrt.dll
+WARNING: new == new[] => disabling mismatch detection for msvcrt.dll
+WARNING: new/delete has no local wrapper => disabling mismatch detection for msvcrt.dll
+
+module load event: "KERNEL32.dll" 0x00007ffe3fb30000-0x00007ffe3fbee000 modid: 9 C:\WINDOWS\System32\KERNEL32.DLL
+
+module load event: "ntdll.dll" 0x00007ffe406d0000-0x00007ffe408c5000 modid: 10 C:\WINDOWS\SYSTEM32\ntdll.dll
+WARNING: fail to find call to RtlFreeStringRoutine
+WARNING: fail to find call to RtlFreeStringRoutine
+WARNING: fail to find call to RtlFreeStringRoutine
+
+NEW THREAD: main thread 1232
+
+
+Error #1: UNADDRESSABLE ACCESS beyond top of stack: reading 0x000000c1c3bff490-0x000000c1c3bff498 8 byte(s)
+# 0 ___chkstk_ms   [../../../gcc-10.3.0/libgcc/config/i386/cygwin.S:132] (0x00007ff78ee1595b <unit_tests.exe+0x595b>) modid:3
+# 1 _pei386_runtime_relocator [C:/_/M/mingw-w64-crt-git/src/mingw-w64/mingw-w64-crt/crt/pseudo-reloc.c:477] (0x00007ff78ee14e96 <unit_tests.exe+0x4e96>) modid:3
+# 2 __tmainCRTStartup [C:/_/M/mingw-w64-crt-git/src/mingw-w64/mingw-w64-crt/crt/crtexe.c:269] (0x00007ff78ee11251 <unit_tests.exe+0x1251>) modid:3
+# 3 .l_start       [C:/_/M/mingw-w64-crt-git/src/mingw-w64/mingw-w64-crt/crt/crtexe.c:202] (0x00007ff78ee114e6 <unit_tests.exe+0x14e6>) modid:3
+# 4 KERNEL32.dll!BaseThreadInitThunk (0x00007ffe3fb47034 <KERNEL32.dll+0x17034>) modid:9
+Note: @0:00:00.404 in thread 1232
+Note: 0x000000c1c3bff490 refers to 744 byte(s) beyond the top of the stack 0x000000c1c3bff778
+Note: instruction: or     $0x0000000000000000 (%rcx) -> (%rcx)
+	error end
+
+Error #2: UNINITIALIZED READ: reading register rcx
+# 0 libcheck-0.dll!_tcase_add_test [D:\check-0.14.0\check-0.14.0\src/check.c:259] (0x00007ffe115217e8 <libcheck-0.dll+0x17e8>) modid:4
+# 1 insert_num_after_even_suite [C:/_/M/mingw-w64-crt-git/src/mingw-w64/mingw-w64-crt/crt/crtexe.c:420] (0x00007ff78ee14705 <unit_tests.exe+0x4705>) modid:3
+# 2 main           [C:/_/M/mingw-w64-crt-git/src/mingw-w64/mingw-w64-crt/crt/crtexe.c:420] (0x00007ff78ee148ea <unit_tests.exe+0x48ea>) modid:3
+Note: @0:00:00.424 in thread 1232
+Note: instruction: test   %rcx %rcx
+	error end
+
+Error #3: UNINITIALIZED READ: reading register rbx
+# 0 libcheck-0.dll!_tcase_add_test [D:\check-0.14.0\check-0.14.0\src/check.c:268] (0x00007ffe11521800 <libcheck-0.dll+0x1800>) modid:4
+# 1 insert_num_after_even_suite [C:/_/M/mingw-w64-crt-git/src/mingw-w64/mingw-w64-crt/crt/crtexe.c:420] (0x00007ff78ee14705 <unit_tests.exe+0x4705>) modid:3
+# 2 main           [C:/_/M/mingw-w64-crt-git/src/mingw-w64/mingw-w64-crt/crt/crtexe.c:420] (0x00007ff78ee148ea <unit_tests.exe+0x48ea>) modid:3
+Note: @0:00:00.424 in thread 1232
+Note: instruction: mov    0x18(%rbx) -> %rcx
+	error end
+
+Error #4: UNINITIALIZED READ: reading register rcx
+# 0 libcheck-0.dll!_tcase_add_test [D:\check-0.14.0\check-0.14.0\src/check.c:259] (0x00007ffe115217e8 <libcheck-0.dll+0x17e8>) modid:4
+# 1 insert_num_after_even_suite [C:/_/M/mingw-w64-crt-git/src/mingw-w64/mingw-w64-crt/crt/crtexe.c:420] (0x00007ff78ee14734 <unit_tests.exe+0x4734>) modid:3
+# 2 main           [C:/_/M/mingw-w64-crt-git/src/mingw-w64/mingw-w64-crt/crt/crtexe.c:420] (0x00007ff78ee148ea <unit_tests.exe+0x48ea>) modid:3
+Note: @0:00:00.424 in thread 1232
+Note: instruction: test   %rcx %rcx
+	error end
+
+Error #5: UNINITIALIZED READ: reading register rbx
+# 0 libcheck-0.dll!_tcase_add_test [D:\check-0.14.0\check-0.14.0\src/check.c:268] (0x00007ffe11521800 <libcheck-0.dll+0x1800>) modid:4
+# 1 insert_num_after_even_suite [C:/_/M/mingw-w64-crt-git/src/mingw-w64/mingw-w64-crt/crt/crtexe.c:420] (0x00007ff78ee14734 <unit_tests.exe+0x4734>) modid:3
+# 2 main           [C:/_/M/mingw-w64-crt-git/src/mingw-w64/mingw-w64-crt/crt/crtexe.c:420] (0x00007ff78ee148ea <unit_tests.exe+0x48ea>) modid:3
+Note: @0:00:00.424 in thread 1232
+Note: instruction: mov    0x18(%rbx) -> %rcx
+	error end
+
+Error #6: UNADDRESSABLE ACCESS beyond top of stack: reading 0x000000c1c3bff3c0-0x000000c1c3bff3c8 8 byte(s)
+# 0 libcheck-0.dll!.text          [../../../gcc-10.3.0/libgcc/config/i386/cygwin.S:132] (0x00007ffe11525e8b <libcheck-0.dll+0x5e8b>) modid:4
+# 1 libcheck-0.dll!__pformat_int.isra.0 [C:/_/M/mingw-w64-crt-git/src/mingw-w64/mingw-w64-crt/stdio/mingw_pformat.c:707] (0x00007ffe1152909a <libcheck-0.dll+0x909a>) modid:4
+# 2 libcheck-0.dll!__mingw_pformat [C:/_/M/mingw-w64-crt-git/src/mingw-w64/mingw-w64-crt/stdio/mingw_pformat.c:2605] (0x00007ffe1152a4be <libcheck-0.dll+0xa4be>) modid:4
+# 3 libcheck-0.dll!__mingw_vsnprintf [C:/_/M/mingw-w64-crt-git/src/mingw-w64/mingw-w64-crt/stdio/mingw_vsnprintf.c:47] (0x00007ffe115262f8 <libcheck-0.dll+0x62f8>) modid:4
+# 4 libcheck-0.dll!ck_strdup_printf [C:/msys64/mingw64/x86_64-w64-mingw32/include/stdio.h:469] (0x00007ffe11524ea6 <libcheck-0.dll+0x4ea6>) modid:4
+# 5 libcheck-0.dll!sr_stat_str    [D:\check-0.14.0\check-0.14.0\src/check_str.c:70] (0x00007ffe11524fff <libcheck-0.dll+0x4fff>) modid:4
+# 6 libcheck-0.dll!srunner_fprint [D:\check-0.14.0\check-0.14.0\src/check_print.c:65] (0x00007ffe115244d0 <libcheck-0.dll+0x44d0>) modid:4
+# 7 libcheck-0.dll!srunner_send_evt [D:\check-0.14.0\check-0.14.0\src/check_log.c:173] (0x00007ffe1152230f <libcheck-0.dll+0x230f>) modid:4
+# 8 libcheck-0.dll!srunner_run_tagged [D:\check-0.14.0\check-0.14.0\src/check_run.c:161] (0x00007ffe11524ad1 <libcheck-0.dll+0x4ad1>) modid:4
+# 9 libcheck-0.dll!srunner_run_all [D:\check-0.14.0\check-0.14.0\src/check_run.c:827] (0x00007ffe11524dee <libcheck-0.dll+0x4dee>) modid:4
+#10 main           [C:/_/M/mingw-w64-crt-git/src/mingw-w64/mingw-w64-crt/crt/crtexe.c:420] (0x00007ff78ee1490a <unit_tests.exe+0x490a>) modid:3
+Note: @0:00:00.751 in thread 1232
+Note: 0x000000c1c3bff3c0 refers to 8 byte(s) beyond the top of the stack 0x000000c1c3bff3c8
+Note: instruction: or     $0x0000000000000000 (%rcx) -> (%rcx)
+	error end
+
+Error #7: UNADDRESSABLE ACCESS beyond top of stack: reading 0x000000c1c3bff360-0x000000c1c3bff368 8 byte(s)
+# 0 libcheck-0.dll!.text          [../../../gcc-10.3.0/libgcc/config/i386/cygwin.S:132] (0x00007ffe11525e8b <libcheck-0.dll+0x5e8b>) modid:4
+# 1 libcheck-0.dll!__pformat_int.isra.0 [C:/_/M/mingw-w64-crt-git/src/mingw-w64/mingw-w64-crt/stdio/mingw_pformat.c:707] (0x00007ffe1152909a <libcheck-0.dll+0x909a>) modid:4
+# 2 libcheck-0.dll!__mingw_pformat [C:/_/M/mingw-w64-crt-git/src/mingw-w64/mingw-w64-crt/stdio/mingw_pformat.c:2605] (0x00007ffe1152a4be <libcheck-0.dll+0xa4be>) modid:4
+# 3 libcheck-0.dll!__mingw_vsnprintf [C:/_/M/mingw-w64-crt-git/src/mingw-w64/mingw-w64-crt/stdio/mingw_vsnprintf.c:47] (0x00007ffe115262f8 <libcheck-0.dll+0x62f8>) modid:4
+# 4 libcheck-0.dll!ck_strdup_printf [C:/msys64/mingw64/x86_64-w64-mingw32/include/stdio.h:469] (0x00007ffe11524ea6 <libcheck-0.dll+0x4ea6>) modid:4
+# 5 libcheck-0.dll!tr_str         [D:\check-0.14.0\check-0.14.0\src/check_str.c:42] (0x00007ffe11524f26 <libcheck-0.dll+0x4f26>) modid:4
+# 6 libcheck-0.dll!tr_fprint      [D:\check-0.14.0\check-0.14.0\src/check_print.c:161] (0x00007ffe1152441e <libcheck-0.dll+0x441e>) modid:4
+# 7 libcheck-0.dll!srunner_fprint [D:\check-0.14.0\check-0.14.0\src/check_print.c:91] (0x00007ffe115244a6 <libcheck-0.dll+0x44a6>) modid:4
+# 8 libcheck-0.dll!srunner_send_evt [D:\check-0.14.0\check-0.14.0\src/check_log.c:173] (0x00007ffe1152230f <libcheck-0.dll+0x230f>) modid:4
+# 9 libcheck-0.dll!srunner_run_tagged [D:\check-0.14.0\check-0.14.0\src/check_run.c:161] (0x00007ffe11524ad1 <libcheck-0.dll+0x4ad1>) modid:4
+#10 libcheck-0.dll!srunner_run_all [D:\check-0.14.0\check-0.14.0\src/check_run.c:827] (0x00007ffe11524dee <libcheck-0.dll+0x4dee>) modid:4
+#11 main           [C:/_/M/mingw-w64-crt-git/src/mingw-w64/mingw-w64-crt/crt/crtexe.c:420] (0x00007ff78ee1490a <unit_tests.exe+0x490a>) modid:3
+Note: @0:00:00.761 in thread 1232
+Note: 0x000000c1c3bff360 refers to 8 byte(s) beyond the top of the stack 0x000000c1c3bff368
+Note: instruction: or     $0x0000000000000000 (%rcx) -> (%rcx)
+	error end
+
+Error #8: POSSIBLE LEAK 32 direct bytes 0x000001ebc31501c0-0x000001ebc31501e0 + 0 indirect bytes
+# 0 replace_malloc  [d:\a\drmemory\drmemory\common\alloc_replace.c:2580] (0x00007ff71ee67f00 <drmemorylib.dll+0x27f00>) modid:2
+# 1 msvcrt.dll!realloc    (0x00007ffe3f969f44 <msvcrt.dll+0x19f44>) modid:8
+# 2 msvcrt.dll!unlock     (0x00007ffe3f98b68d <msvcrt.dll+0x3b68d>) modid:8
+# 3 msvcrt.dll!_getmainargs (0x00007ffe3f957a01 <msvcrt.dll+0x7a01>) modid:8
+# 4 pre_cpp_init   [C:/_/M/mingw-w64-crt-git/src/mingw-w64/mingw-w64-crt/crt/crtexe.c:161] (0x00007ff78ee11173 <unit_tests.exe+0x1173>) modid:3
+# 5 msvcrt.dll!initterm   (0x00007ffe3f98a553 <msvcrt.dll+0x3a553>) modid:8
+# 6 __tmainCRTStartup [C:/_/M/mingw-w64-crt-git/src/mingw-w64/mingw-w64-crt/crt/crtexe.c:259] (0x00007ff78ee11437 <unit_tests.exe+0x1437>) modid:3
+# 7 .l_start       [C:/_/M/mingw-w64-crt-git/src/mingw-w64/mingw-w64-crt/crt/crtexe.c:202] (0x00007ff78ee114e6 <unit_tests.exe+0x14e6>) modid:3
+# 8 KERNEL32.dll!BaseThreadInitThunk (0x00007ffe3fb47034 <KERNEL32.dll+0x17034>) modid:9
+	error end
+WARNING: unable to load symbols for C:\msys64\mingw64\bin\libwinpthread-1.dll
+
+Potential Error #1: HANDLE LEAK: KERNEL handle 0x00000000000000ec and 0 similar handle(s) were opened but not closed:
+# 0 system call NtCreateEvent
+# 1 KERNELBASE.dll!CreateEventA   (0x00007ffe3de742af <KERNELBASE.dll+0x542af>) modid:7
+# 2 libwinpthread-1.dll!?                   (0x00007ffe37084b7e <libwinpthread-1.dll+0x4b7e>) modid:5
+# 3 libwinpthread-1.dll!?                   (0x00007ffe37085bc5 <libwinpthread-1.dll+0x5bc5>) modid:5
+# 4 libcheck-0.dll!ppack          [D:\check-0.14.0\check-0.14.0\src/check_pack.c:330] (0x00007ffe1152396c <libcheck-0.dll+0x396c>) modid:4
+# 5 libcheck-0.dll!send_ctx_info  [D:\check-0.14.0\check-0.14.0\src/check_msg.c:117] (0x00007ffe115231a0 <libcheck-0.dll+0x31a0>) modid:4
+# 6 libcheck-0.dll!tcase_fn_start [D:\check-0.14.0\check-0.14.0\src/check.c:349] (0x00007ffe1152194c <libcheck-0.dll+0x194c>) modid:4
+# 7 libcheck-0.dll!tcase_run_tfun_nofork [D:\check-0.14.0\check-0.14.0\src/check_run.c:419] (0x00007ffe115248bf <libcheck-0.dll+0x48bf>) modid:4
+# 8 libcheck-0.dll!srunner_run_tagged [D:\check-0.14.0\check-0.14.0\src/check_run.c:263] (0x00007ffe11524c2b <libcheck-0.dll+0x4c2b>) modid:4
+# 9 libcheck-0.dll!srunner_run_all [D:\check-0.14.0\check-0.14.0\src/check_run.c:827] (0x00007ffe11524dee <libcheck-0.dll+0x4dee>) modid:4
+#10 main           [C:/_/M/mingw-w64-crt-git/src/mingw-w64/mingw-w64-crt/crt/crtexe.c:420] (0x00007ff78ee1490a <unit_tests.exe+0x490a>) modid:3
+Note: @0:00:01.049 in thread 1232
+	error end
+
+Potential Error #2: HANDLE LEAK: KERNEL handle 0x00000000000000f4 and 0 similar handle(s) were opened but not closed:
+# 0 system call NtDuplicateObject
+# 1 KERNELBASE.dll!DuplicateHandle (0x00007ffe3de7019c <KERNELBASE.dll+0x5019c>) modid:7
+# 2 libwinpthread-1.dll!?                   (0x00007ffe37084c00 <libwinpthread-1.dll+0x4c00>) modid:5
+# 3 libwinpthread-1.dll!?                   (0x00007ffe37085bc5 <libwinpthread-1.dll+0x5bc5>) modid:5
+# 4 libcheck-0.dll!ppack          [D:\check-0.14.0\check-0.14.0\src/check_pack.c:330] (0x00007ffe1152396c <libcheck-0.dll+0x396c>) modid:4
+# 5 libcheck-0.dll!send_ctx_info  [D:\check-0.14.0\check-0.14.0\src/check_msg.c:117] (0x00007ffe115231a0 <libcheck-0.dll+0x31a0>) modid:4
+# 6 libcheck-0.dll!tcase_fn_start [D:\check-0.14.0\check-0.14.0\src/check.c:349] (0x00007ffe1152194c <libcheck-0.dll+0x194c>) modid:4
+# 7 libcheck-0.dll!tcase_run_tfun_nofork [D:\check-0.14.0\check-0.14.0\src/check_run.c:419] (0x00007ffe115248bf <libcheck-0.dll+0x48bf>) modid:4
+# 8 libcheck-0.dll!srunner_run_tagged [D:\check-0.14.0\check-0.14.0\src/check_run.c:263] (0x00007ffe11524c2b <libcheck-0.dll+0x4c2b>) modid:4
+# 9 libcheck-0.dll!srunner_run_all [D:\check-0.14.0\check-0.14.0\src/check_run.c:827] (0x00007ffe11524dee <libcheck-0.dll+0x4dee>) modid:4
+#10 main           [C:/_/M/mingw-w64-crt-git/src/mingw-w64/mingw-w64-crt/crt/crtexe.c:420] (0x00007ff78ee1490a <unit_tests.exe+0x490a>) modid:3
+Note: @0:00:01.049 in thread 1232
+	error end
+
+DUPLICATE ERROR COUNTS:
+	Error #   1:      2
+	Error #   6:      8
+	Error #   7:     68
+
+SUPPRESSIONS USED:
+
+ERRORS FOUND:
+      3 unique,    78 total unaddressable access(es)
+      4 unique,     4 total uninitialized access(es)
+      0 unique,     0 total invalid heap argument(s)
+      0 unique,     0 total GDI usage error(s)
+      0 unique,     0 total handle leak(s)
+      0 unique,     0 total warning(s)
+      0 unique,     0 total,      0 byte(s) of leak(s)
+      1 unique,     1 total,     32 byte(s) of possible leak(s)
+ERRORS IGNORED:
+      2 potential error(s) (suspected false positives)
+         (details: D:\c_lab_12_2\mem_rep\DrMemory-unit_tests.exe.12516.000\potential_errors.txt)
+     96 ignored assumed-innocuous system leak(s)
+     10 unique,    10 total,   5007 byte(s) of still-reachable allocation(s)
+         (re-run with "-show_reachable" for details)
+Details: D:\c_lab_12_2\mem_rep\DrMemory-unit_tests.exe.12516.000\results.txt
+
+DUPLICATE POTENTIAL ERROR COUNTS:
+
+POTENTIAL ERRORS FOUND:
+      0 unique,     0 total potential unaddressable access(es)
+      0 unique,     0 total potential uninitialized access(es)
+      0 unique,     0 total potential invalid heap argument(s)
+      0 unique,     0 total potential GDI usage error(s)
+      2 unique,     2 total potential handle leak(s)
+      0 unique,     0 total potential warning(s)
+      0 unique,     0 total,      0 byte(s) of potential leak(s)
+      0 unique,     0 total,      0 byte(s) of potential possible leak(s)
+Details: D:\c_lab_12_2\mem_rep\DrMemory-unit_tests.exe.12516.000\potential_errors.txt
+Exiting @0:00:01.059 in thread 1232
+LOG END
